@@ -1,49 +1,45 @@
 <!DOCTYPE HTML>
 <html lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Description website">
-<meta name="author" content="Maksym Blank">
-<meta name="keywords" content="website, with, meta, tags">
-<meta name="robots" content="noindex, follow">
-<meta name="revisit-after" content="5 month">
-<meta name="image" content="http://mywebsite.com/image.jpg">
-<meta name="og:title" content="Title website">
-<meta name="og:description" content="Description website">
-<meta name="og:image" content="http://mywebsite.com/image.jpg">
-<meta name="og:site_name" content="My Website">
-<meta name="og:type" content="website">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Title website">
-<meta name="twitter:description" content="Description website">
-<title>Lindou - Ballet Dancing HTML5 Template</title>
-<!--Bootstrap -->
-<link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
-<!--OWL Carousel slider-->
-<link rel="stylesheet" href="assets/css/owl.carousel.css" type="text/css">
-<!--Custome Style -->
-<link rel="stylesheet" href="assets/css/style.css" type="text/css">
-<!--magnific Style -->
-<link rel="stylesheet" href="assets/css/magnific-popup.css" type="text/css">
-<!--FontAwesome Font Style -->
-<link href="assets/css/font-awesome.min.css" rel="stylesheet">
-<!-- Fav and touch icons -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/favicon-icon/apple-touch-icon-144-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/favicon-icon/apple-touch-icon-114-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/favicon-icon/apple-touch-icon-72-precomposed.png">
-<link rel="apple-touch-icon-precomposed" href="assets/images/favicon-icon/apple-touch-icon-57-precomposed.png">
-<link rel="shortcut icon" href="assets/images/favicon-icon/favicon.png">
-<!-- Google-Font-->
-<link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700,900" rel="stylesheet">
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-</head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta name="description" content="calledelarte escuela de danza">
+      <meta name="author" content="SRB">
+      <meta name="keywords" content="ballet, baile, danza, escuela">
+      <meta name="robots" content="index, follow">
+      <meta name="revisit-after" content="never">
+      <meta name="image" content="http://mywebsite.com/image.jpg">
+      <meta name="og:title" content="CalledelArte | Escuela de Danza">
+      <meta name="og:description" content="CalledelArte escuela de danza especializada en ballet de Alcalá de Henares">
+      <meta name="og:image" content="http://mywebsite.com/image.jpg">
+      <meta name="og:site_name" content="CalledelArte">
+      <meta name="og:type" content="website">
+      <!-- <meta name="twitter:card" content="summary">
+      <meta name="twitter:title" content="Title website">
+      <meta name="twitter:description" content="Description website"> -->
+      <title>CalledelArte - Escuela de Ballet y Danza</title>
+      <!--Bootstrap -->
+      <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
+      <!--OWL Carousel slider-->
+      <link rel="stylesheet" href="assets/css/owl.carousel.css" type="text/css">
+      <!--Custome Style -->
+      <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+      <!--magnific Style -->
+      <link rel="stylesheet" href="assets/css/magnific-popup.css" type="text/css">
+      <!--FontAwesome Font Style -->
+      <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+      <!-- Fav and touch icons -->
+      <link rel="shortcut icon" href="assets/images/favicon-icon/favicon.png">
+      <!-- Google-Font-->
+      <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+   </head>
 <body>
 <!-- Mobile Aside -->
       <aside class="sigma_aside">
@@ -350,8 +346,8 @@
       <div class="container">
         <div class="sigma_footer-bottom mt-0 d-block d-sm-flex align-items-center justify-content-between">
           <div class="sigma_footer-copyright m-0">
-            <p class="mb-0"> © LindouProject -
-              <a href="#">2021</a>
+            <p class="mb-0"> © SRB -
+              <a href="#"><span id="currentYear"></span></a>
             </p>
           </div>
           <ul class="follow_us mt-3 mt-sm-0">
@@ -404,6 +400,10 @@
       <!-- /Sidebar-Nav -->
 
 <!-- Scripts -->
+<script>
+        // JavaScript para obtener el año actual
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <!--Parallax-JS-->
