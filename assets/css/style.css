@@ -68,6 +68,21 @@ body {
 /*----------------------
 	1.1. Typography
 ------------------------------*/
+.whitetext{
+	color:whitesmoke
+}
+
+.blacktext{
+	color:#232323;
+}
+
+.borde-blanco {
+	color: #000; /* color del texto */
+  border: 2px solid #000; /* borde blanco de 2px */
+  padding: 5px; /* espacio interno */
+  display: inline; /* para que el borde se ajuste al contenido */
+  }
+
 h1, h2, h3, h4, h5, h6 {
 	color:#767A7F;
 	margin:0 auto 20px;
