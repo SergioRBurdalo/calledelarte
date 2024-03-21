@@ -1,157 +1,35 @@
 <?php
-    // Your email here
-    $email = 'srburdalo@gmail.com.com';
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Configura la dirección de correo electrónico a la que quieres que se envíen los mensajes
+    $destinatario = "tudirecciondecorreo@example.com";
 
-    // Errors Object
-    $serverErrors = array();
+    // Recoge los datos del formulario
+    $nombre = $_POST['nombre'];
+    $apellidos = $_POST['apellidos'];
+    $email = $_POST['email'];
+    $asunto = $_POST['asunto'];
+    $mensaje = $_POST['mensaje'];
 
-    // Errors strings
-    $fullname_error      = '*Invalid name (Only letters and white space allowed) <br>';
-    $lastname_error      = '*Invalid name (Only letters and white space allowed) <br>';
-    $email_error     = '*Invalid email format <br>';
-    $phone_error     = '*Invalid phone number <br>';
-    $subject_error   = '*Please choose the subject <br>';
-    $time_error   = '*Please choose the time <br>';
-    $message_error   = '*Please write your message <br>';
-    $recaptcha_error = '*You are Robot!';
+    // Construye el mensaje de correo electrónico
+    $contenido = "Nombre: $nombre\n";
+    $contenido .= "Apellidos: $apellidos\n";
+    $contenido .= "Email: $email\n";
+    $contenido .= "Asunto: $asunto\n";
+    $contenido .= "Mensaje:\n$mensaje\n";
 
-    // Status strings
-    $sent_message = 'Email Sent Successfully!';
-    $send_error_message = 'Error, please try again...';
+    // Envía el correo electrónico
+    $asunto = "Nuevo mensaje de formulario de contacto";
+    $headers = "From: $email";
 
-    // Email subject
-    $email_subject = 'New message from ' . "[$_SERVER[HTTP_HOST]]";
-
-    $post_data = "";
-
-    $sender_email = '';
-
-    function secure ($var){
-        return stripslashes(htmlspecialchars($var));
+    if (mail($destinatario, $asunto, $contenido, $headers)) {
+        // Envío exitoso
+        echo json_encode(array("status" => "success", "message" => "Mensaje enviado correctamente."));
+    } else {
+        // Error en el envío
+        echo json_encode(array("status" => "error", "message" => "Error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde."));
     }
-
-    foreach ($_POST as $key => $value){
-        $value = secure($value);
-
-        switch ($key){
-            case 'fullname':
-                if( !preg_match("/^[a-zA-Z ]*$/", $value) || empty($value) ) {
-                    $serverErrors['errors'] .= $fname_error;
-                }
-                else{
-                    $post_data .= "<strong>$key:</strong> $value <br>";
-                }
-                break;
-                case 'lastname':
-                if( !preg_match("/^[a-zA-Z ]*$/", $value) || empty($value) ) {
-                    $serverErrors['errors'] .= $lastname_error;
-                }
-                else{
-                    $post_data .= "<strong>$key:</strong> $value <br>";
-                }
-                break;
-            case 'email':
-                if( !filter_var($value, FILTER_VALIDATE_EMAIL) ) {
-                    $serverErrors['errors'] .= $email_error;
-                }
-                else{
-                    $post_data .= "<strong>$key:</strong> $value <br>";
-                    $sender_email = $value;
-                }
-                break;
-            case 'phone':
-                if( empty($value) ){
-                    $serverErrors['errors'] .= $phone_error;
-                }
-                else{
-                    $post_data .= "<strong>$key:</strong> $value <br>";
-                }
-                break;
-            case 'subject':
-                if( empty($value) ){
-                    $serverErrors['errors'] .= $subject_error;
-                }
-                else{
-                    $post_data .= "<strong>$key:</strong> $value <br>";
-                }
-                break;
-            case 'time':
-                if( empty($value) ){
-                    $serverErrors['errors'] .= $time_error;
-                }
-                else{
-                    $post_data .= "<strong>$key:</strong> $value <br>";
-                }
-                break;
-            case 'message':
-                if( empty($value) ){
-                    $serverErrors['errors'] .= $message_error;
-                }
-                else{
-                    $post_data .= "<br><strong>$key:</strong> $value <br>";
-                }
-                break;
-            default: if( !empty($value) ) $post_data .= "<strong>$key:</strong> $value <br>";
-        }
-    }
-
-    // Set and return status ERROR if anny errors found
-    if( count($serverErrors) > 0 ) {
-        $serverErrors['status'] = 'error';
-
-        // Return JSON Errors
-        echo json_encode($serverErrors, JSON_FORCE_OBJECT);
-        exit;
-    }
-    else{
-        /*
-        * If no errors prepare and send email
-        */
-
-        if( !empty($sender_email) ){
-            $sender = "{$sender_email} <noreply@{$_SERVER['HTTP_HOST']}>";
-        }
-        else{
-            $sender = "{$email} <noreply@{$_SERVER['HTTP_HOST']}>";
-        }
-
-        // Setting up header
-        $header  = 'MIME-Version: 1.0' . "\r\n";
-        $header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-        $header .= 'From: '.$sender."\r\n".
-            'Reply-To: '.$sender."\r\n" .
-            'X-Mailer: PHP/' . phpversion();
-
-        //  $message = $post_data . "\n\n"."User IP: <a href='#'>User IP</a>" . $_SERVER['REMOTE_ADDR'] . "\n\n"  .date("H:i M.d.Y ")."\n";
-
-        $message = '<html><body>';
-        $message .= '<p style="display: block; max-width: 550px; font-size: 16px">'. $post_data . '</p>';
-        $message .= '<br>';
-        $message .= '<a href="https://iplocation.com/?ip='.$_SERVER['REMOTE_ADDR'].'" style="text-decoration: underline; color: #27AE60"><strong style="color: #27AE60">VIEW USER LOCALIZATION</strong></a>';
-        $message .= '<p style="color: #999999; font-size: 14px"><strong>SENT:</strong> ' . date("H:i M.d.Y ") . '</p>';
-        $message .= '<p style="color: #999999; font-size: 11px; margin-top: 50px;"> Powered by <a href="#" style="color: #EB3B5B">Simple AJAX Contact Form</a></p>';
-        $message .= '</body></html>';
-
-        // Verification before sending
-        $verify = mail($email,$email_subject,$message,$header);
-
-        // Return Server Response
-        if ($verify == 'true'){
-
-            // Return Success Message
-            $serverErrors['status'] = 'success';
-            $serverErrors['message'] = $sent_message;
-            echo json_encode($serverErrors, JSON_FORCE_OBJECT);
-
-            exit;
-        }
-        else {
-
-            // Return Error Message
-            $serverErrors['status'] = 'error';
-            $serverErrors['message'] = $send_error_message;
-            echo json_encode($serverErrors, JSON_FORCE_OBJECT);
-
-            exit;
-        }
-    }
+} else {
+    // Si el método de solicitud no es POST, devuelve un error
+    echo json_encode(array("status" => "error", "message" => "Método de solicitud incorrecto."));
+}
+?>
