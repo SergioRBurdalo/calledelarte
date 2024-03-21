@@ -3328,6 +3328,9 @@ padding-top: 0;
 	color: #333;
 	font-weight: 600;
 }
+.imagen-derecha{
+	margin-left: 200px
+} 
 
 .sigma_footer .sigma_footer-bottom{
 	border-top: 1px solid #e1e1e1;
@@ -3396,6 +3399,9 @@ padding-top: 0;
 ==========================*/
 @media (min-width:991px) and (max-width:1200px) {
 
+.imagen-derecha{
+margin-left: 200px;
+}
 .intro_text h1 {
 	line-height: 70px;
 }
@@ -3505,13 +3511,17 @@ h3 {
 	opacity: 0;
 	visibility: hidden;
 }
-
+.imagen-derecha{
+	margin-left: 0px;
+	}
 
 }
 
 
 @media (min-width:768px) and (max-width:990px) {
-
+.imagen-derecha{
+	margin-left: 0px;
+}
 h1 {
 	font-size: 50px;
 }
@@ -3694,7 +3704,9 @@ h6 {
 
 
 @media (max-width:767px) {
-
+	.imagen-derecha{
+		margin-left: 0px;
+		}
 .intro_text {
 	padding: 150px 0;
 }
@@ -3934,7 +3946,9 @@ p {
 }
 
 @media (max-width:576px) {
-
+	.imagen-derecha{
+		margin-left: 0px;
+		}
   /* portfolio detail */
     .sigma_single-pagination{
 		display: block;

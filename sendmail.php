@@ -1,13 +1,9 @@
 <?php
     // Your email here
-    $email = 'example@example.com';
+    $email = 'srburdalo@gmail.com.com';
 
     // Errors Object
     $serverErrors = array();
-
-    // Recaptcha settings
-    $use_recaptcha = false;
-    define("RECAPTCHA_V3_SECRET_KEY", '6LdxUhMaAAAAAGGLwVZGbxc_chy8-c3VhesxKhsO');
 
     // Errors strings
     $fullname_error      = '*Invalid name (Only letters and white space allowed) <br>';
@@ -95,34 +91,9 @@
                     $post_data .= "<br><strong>$key:</strong> $value <br>";
                 }
                 break;
-            case 'g-recaptcha-response':
-                if( !empty($value) ) $use_recaptcha = true;
-                break;
             default: if( !empty($value) ) $post_data .= "<strong>$key:</strong> $value <br>";
         }
     }
-
-    // Recaptcha
-    function recaptcha(){
-        $token = $_POST['g-recaptcha-response'];
-
-        // call curl to POST request
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,"https://www.google.com/recaptcha/api/siteverify");
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array('secret' => RECAPTCHA_V3_SECRET_KEY, 'response' => $token)));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec($ch);
-        curl_close($ch);
-        $arrResponse = json_decode($response, true);
-
-        // verify the response
-        if($arrResponse["success"] == '1' && $arrResponse["score"] >= 0.5)  return true;
-        else return false;
-    }
-
-    // Recaptcha status check
-    if( $use_recaptcha and !recaptcha() ) $serverErrors['errors'] .= $recaptcha_error;
 
     // Set and return status ERROR if anny errors found
     if( count($serverErrors) > 0 ) {
