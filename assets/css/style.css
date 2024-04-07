@@ -1513,6 +1513,8 @@ padding-top: 0;
 	text-align:center;
 }
 .team_img {
+	width: 350px;
+	height: 350px;
 	overflow:hidden;
 	position:relative;
 	margin:0 auto 33px;
