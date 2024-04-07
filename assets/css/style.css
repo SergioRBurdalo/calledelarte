@@ -1497,7 +1497,7 @@ padding-top: 0;
 	color:#fff;
 }
 .map_wp {
-	margin:-150px auto 0px;
+	margin:120px auto 0px;
 }
 .map_wp iframe {
 	width:100%;
@@ -2689,6 +2689,11 @@ padding-top: 0;
 /*================
 	11. Services
 =======================*/
+.service_img {
+	width: 100px;
+	height: 100px;
+}
+
 .service_box {
 	background:#fff;
 	margin:0 auto 30px;
@@ -3331,7 +3336,7 @@ padding-top: 0;
 	font-weight: 600;
 }
 .imagen-derecha{
-	margin-left: 200px
+	margin-left: 300px
 } 
 
 .sigma_footer .sigma_footer-bottom{
@@ -3402,7 +3407,7 @@ padding-top: 0;
 @media (min-width:991px) and (max-width:1200px) {
 
 .imagen-derecha{
-margin-left: 200px;
+margin-left: 300px;
 }
 .intro_text h1 {
 	line-height: 70px;
