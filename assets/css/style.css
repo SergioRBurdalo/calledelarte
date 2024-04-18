@@ -2054,7 +2054,7 @@ padding-top: 0;
 }
 .post_categorys a:hover {
 	background:#0051ff;
-	color:#fff;
+	color:#fff !important;
 }
 .post_img {
 	margin:0 auto -90px;
@@ -3350,7 +3350,7 @@ padding-top: 0;
 	font-weight: 600;
 }
 .imagen-derecha{
-	margin-left: 300px
+	margin-left: 400px
 } 
 
 .sigma_footer .sigma_footer-bottom{
