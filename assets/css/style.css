@@ -1520,13 +1520,13 @@ padding-top: 0;
 	margin:0 auto 33px;
 }
 .team_img-2{
-	width: 400px;
+	width: 450px;
 	height: 550px;
 	overflow:hidden;
 	position:relative;
-	margin:0 auto 33px;
+	margin:0 auto 10px;
 }
-}
+
 .hover_wp {
 	position:absolute;
 	top:0;
@@ -2845,6 +2845,7 @@ padding-top: 0;
 	12. About-Us
 ==========================*/
 .info_box {
+	height: 615px;
 	text-align:center;
 	border:#f2f2f2 solid 8px;
 	padding:60px 30px;
@@ -3632,8 +3633,17 @@ h6 {
 	padding: 40px 20px;
 }
 .info_box {
+	height: auto;
 	padding: 30px 20px;
 	margin:0 auto 15px;
+}
+
+.team_img-2{
+	width: 350px;
+	height: 550px;
+	overflow:hidden;
+	position:relative;
+	margin:0 auto 33px;
 }
 .icon {
 	margin: 0 auto 20px;
@@ -3852,8 +3862,16 @@ p {
 	padding: 100px 0;
 }
 .info_box {
+	height: auto;
 	margin:0 auto 20px;
 	padding: 30px 20px;
+}
+.team_img-2{
+	width: 350px;
+	height: 550px;
+	overflow:hidden;
+	position:relative;
+	margin:0 auto 33px;
 }
 .icon {
 	margin: 0 auto 20px;
@@ -3870,7 +3888,7 @@ p {
 	line-height: 50px;
 }
 .about_company {
-	padding: 40px 0 0;
+	padding: 0px 0px 20px 0px 0 0;
 }
 
 .post_info {
