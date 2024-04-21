@@ -2494,7 +2494,7 @@ padding-top: 0;
 }
 .post_tags a:hover {
 	background:#0051ff;
-	color:#fff;
+	color:#fff !important;
 	border-color:#0051ff;
 }
 .post_share a:hover {
